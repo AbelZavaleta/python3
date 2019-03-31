@@ -1,0 +1,43 @@
+|[
+    const N: integrer
+    const A: array [0...N)x[0...N) of integrer
+    var i,j: integrer
+    var D: bool
+    
+    {N>0}
+    
+    i,j,D:=0,0,True 
+    {N-i}
+    {D=(%forall k|0<=k<i:(%forall j|0<=j<N ^ k!=j: A[k][j]=0)
+    do i<N ^ D -> 
+        {N-j}
+        {D=(%forall k|0<=k<i:(%forall z|0<=z<j ^ k!=z: A[k][z]=0)}
+        do j<N ^ D ->
+            if i!=j ->
+                D:=(A[i][j]==0)
+            [] i=j ->
+                skip
+            fi
+        od
+    od
+    
+    {D=(%forall i|0<=i<N:(%forall j|0<=j<N ^ i!=j: A[i][j]=0}
+]|
+
+
+
+|[
+    const N: integrer
+    const A: array [0..N)x[0..N) of integrer
+    var i,j,suma: integrer
+    
+    {N>0}
+    
+    i,j:=0,0
+    {N-i}
+    {suma=(%sigma z: 0<=z<i:A[z])}
+    do i<N ->
+        suma:=suma+A[i]
+    od
+    {suma=(%sigma i: 0<=i<N:A[i])}
+]|

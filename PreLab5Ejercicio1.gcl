@@ -1,0 +1,15 @@
+|[
+    const N: integrer
+    const A: array [0..N)x[0..N) of integrer
+    var i,j,suma: integrer
+    
+    {N>0}
+    
+    i,j:=0,0
+    {N-i}
+    {suma=(%sigma z: 0<=z<i:A[z])}
+    do i<N ->
+        suma:=suma+A[i]
+    od
+    {suma=(%sigma i: 0<=i<N:A[i])}
+]|

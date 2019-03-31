@@ -1,0 +1,27 @@
+#Abel Zavaleta
+#15-11574
+|[
+	const N: integrer
+	const A: array[0...N)x[0...N) of integrer
+	const T: array[0...N)x[0...N) of integrer
+	var i,j :integrer
+	var Es: bool
+
+	{N>0}
+	N,i,j,Es:=2,0,0,True
+	{N-i}
+	{Es=(%forall k|0<=k<i:(%forall j|0<=j<N:A[k][j]=T[j][k]))}
+	do i<N ^ Es ->
+		{N-j}
+		{Es=(%forall k|0<=k<i:(%forall z|0<=z<j:A[k][z]=T[z][k]))}
+		do j<N ^ Es ->
+			if A[i][j]!=T[j][i] ->
+				Es:=False
+			[] A[i][j]==T[j][i] ->
+				skip
+			fi
+		od
+
+	od
+	{Es=(%forall i|0<=i<N:(%forall j|0<=j<N:A[i][j]=T[j][i])}
+]|
